@@ -13,6 +13,8 @@ def evaluateSaladSpree():
     logging.info("data sent for evaluation {}".format(data))
     num_salads = data.get("number_of_salads")
     street_map = data.get("salad_prices_street_map")
+    #num_salads = 3
+    #street_map = [["12", "12", "3", "X", "3"], ["23", "X", "X", "X", "3"], ["33", "21", "X", "X", "X"], ["9", "12", "3", "X", "X"], ["X", "X", "X", "4", "5"]]
     contiguous_shops = []
     for street in street_map:
         helper_stack = []
@@ -21,15 +23,19 @@ def evaluateSaladSpree():
                 helper_stack.append(street[i])
             else:
                 contiguous = []
-                for ele in helper_stack:
+                for i in range(len(helper_stack)):
                     contiguous.append(helper_stack.pop())
                 contiguous_shops.append(contiguous)
-    #inputValue = data.get("input");
-    min_sum = 0
+    # inputValue = data.get("input");
+    min_sum = 99999999999
     for c in contiguous_shops:
-        this_sum = minSumContiguous(c,num_salads,len(c))
-        if this_sum < min_sum:
-            min_sum = this_sum
+        if len(c) >= num_salads:
+            this_sum = minSumContiguous(c, num_salads, len(c))
+            if this_sum < min_sum:
+                min_sum = this_sum
+
+    result = min_sum
+    return result
 
     result = min_sum
     #result = inputValue * inputValue
