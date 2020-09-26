@@ -17,15 +17,20 @@ def evaluateSaladSpree():
     #street_map = [["12", "12", "3", "X", "3"], ["23", "X", "X", "X", "3"], ["33", "21", "X", "X", "X"], ["9", "12", "3", "X", "X"], ["X", "X", "X", "4", "5"]]
     contiguous_shops = []
     for street in street_map:
+        if(len(street)< number_of_salads):
+            continue
         helper_stack = []
         for i in range(len(street)):
             if street[i] != 'X':
                 helper_stack.append(street[i])
             else:
                 contiguous = []
-                for i in range(len(helper_stack)):
-                    contiguous.append(helper_stack.pop())
-                contiguous_shops.append(contiguous)
+                if len(helper_stack) < num_salads:
+                    continue:
+                else:
+                    for i in range(len(helper_stack)):
+                        contiguous.append(helper_stack.pop())
+                    contiguous_shops.append(contiguous)
     # inputValue = data.get("input");
     min_sum = 99999999999
     for c in contiguous_shops:
