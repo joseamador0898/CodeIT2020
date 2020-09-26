@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 @app.route('/salad-spree', methods=['POST'])
 def evaluateSaladSpree():
-    data = request.get_json();
+    data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     num_salads = data.get("number_of_salads")
     street_map = data.get("salad_prices_street_map")
@@ -36,10 +36,9 @@ def evaluateSaladSpree():
 
     result = min_sum
 
-    result = min_sum
-    #result = inputValue * inputValue
     logging.info("My result :{}".format(result))
-    return json.dumps(result);
+    return json.dumps({'result' : min_sum})
+
 
 def minSumContiguous(arr, n, k): 
   
@@ -66,6 +65,7 @@ def minSumContiguous(arr, n, k):
         res =  min(res, curr_sum) 
   
     return res 
+
 
 
 
