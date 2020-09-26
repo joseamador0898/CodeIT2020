@@ -35,7 +35,6 @@ def evaluateSaladSpree():
                 min_sum = this_sum
 
     result = min_sum
-    return result
 
     result = min_sum
     #result = inputValue * inputValue
