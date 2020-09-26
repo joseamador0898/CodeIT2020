@@ -42,7 +42,7 @@ def evaluateSaladSpree():
   
 def minSumContiguous(arr, n, k):
     # k must be greater
-    if (n < k):
+    if (n > k):
         print("Invalid")
         return -1
 
