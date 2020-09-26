@@ -9,18 +9,23 @@ logger = logging.getLogger(__name__)
 
 @app.route('/salad-spree', methods=['POST'])
 def evaluateSaladSpree():
+    
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     num_salads = data.get("number_of_salads")
     street_map = data.get("salad_prices_street_map")
-    #num_salads = 3
-    #street_map = [["12", "12", "3", "X", "3"], ["23", "X", "X", "X", "3"], ["33", "21", "X", "X", "X"], ["9", "12", "3", "X", "X"], ["X", "X", "X", "4", "5"]]
+
+
     contiguous_shops = []
+    #Check each street
     for street in street_map:
+        #Skip if street is less than number of salads
         if len(street) < num_salads:
             continue
+        #Use helper stack 
         helper_stack = []
         for i in range(len(street)):
+            #
             if street[i] != 'X':
                 helper_stack.append(street[i])
             else:
@@ -31,6 +36,7 @@ def evaluateSaladSpree():
                     for i in range(len(helper_stack)):
                         contiguous.append(helper_stack.pop())
                     contiguous_shops.append(contiguous)
+        
     # inputValue = data.get("input");
     min_sum = 99999999999
     for c in contiguous_shops:
