@@ -83,12 +83,12 @@ def evaluate():
             result = result + 'T'*mn
         results_list.append(result)
         print(results_list)
-        
+
     for idx,res in enumerate(data["list"]):
          res = results_list[idx]
     
     logging.info("My result :{}".format(result))
-    return data
+    return jsonify(data)
 
 
 
