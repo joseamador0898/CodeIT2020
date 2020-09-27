@@ -9,7 +9,6 @@ logger = logging.getLogger(__name__)
 
 @app.route('/revisitgeometry', methods=['POST'])
 def evaluateRevisitGeometry():
-    
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     shapeCoordinates = data.get("shapeCoordinates")
