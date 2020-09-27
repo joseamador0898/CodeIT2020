@@ -4,6 +4,8 @@ import codeitsuisse.routes.saladSpree
 import codeitsuisse.routes.revisitGeometry
 import codeitsuisse.routes.intelligentFarming
 import codeitsuisse.routes.supermarketPy
+import codeitsuisse.routes.cluster
+
 
 
 
