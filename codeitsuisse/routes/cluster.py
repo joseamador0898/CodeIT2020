@@ -23,7 +23,7 @@ def evaluateCluster():
 
 class clusterSolution:
     def dfs(self, grid, i, j):
-        if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] == '*'):
+        if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] == '*':
             return
         grid[i][j] = '#'
         self.dfs(grid, i, j+1)
