@@ -25,16 +25,25 @@ class clusterSolution:
     def dfs(self, grid, i, j):
         if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] == '*':
             return
+        temp = grid[i][j]
         grid[i][j] = '#'
-        self.dfs(grid, i, j+1)
-        self.dfs(grid, i+1, j+1)
-        self.dfs(grid, i+1, j)
-        self.dfs(grid, i+1, j-1)
-        self.dfs(grid, i, j-1)
-        self.dfs(grid, i-1, j-1)
-        self.dfs(grid, i-1, j)
-        self.dfs(grid, i-1, j+1)
-
+        if(grid[i][j+1] == '1' or (temp == 1 and grid[i][j+1] == 0)):
+            self.dfs(grid, i, j+1)
+        if(grid[i+1][j+1] == '1' or (temp == 1 and grid[i+1][j+1] == 0)):
+            self.dfs(grid, i+1, j+1)
+        if(grid[i+1][j] == '1' or (temp == 1 and grid[i+1][j] == 0)):
+            self.dfs(grid, i+1, j)
+        if(grid[i+1][j-1] == '1' or (temp == 1 and grid[i+1][j-1] == 0)):
+            self.dfs(grid, i+1, j-1)
+        if(grid[i][j-1] == '1' or (temp == 1 and grid[i][j-1] == 0)):
+            self.dfs(grid, i, j-1)
+        if(grid[i-1][j-1] == '1' or (temp == 1 and grid[i-1][j-1] == 0)):
+            self.dfs(grid, i-1, j-1)
+        if(grid[i-1][j] == '1' or (temp == 1 and grid[i-1][j] == 0)):
+            self.dfs(grid, i-1, j)
+        if(grid[i-1][j+1] == '1' or (temp == 1 and grid[i-1][j+1] == 0)):
+            self.dfs(grid, i-1, j+1)
+    
     def numClusters(self, grid):
         if not grid:
             return 0
